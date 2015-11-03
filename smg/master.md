@@ -1,4 +1,4 @@
-# Node.js Style Guide
+# Style Guide
 
 This is a guide for writing consistent and aesthetically pleasing node.js code.
 It is inspired by what is popular within the community, and flavored with some
@@ -50,11 +50,21 @@ according to your preferences.
 ### Comments
 * [Use slashes for comments](#use-slashes-for-comments)
 
+### SQL
+* [Use lowerCamelCase for variables]
+* [Use UpperCamelCase for everything else]
+* [Make use of case-insensitivity to improve code clarity]
+* [Use consistent indentation for code readability]
+
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
-* [Requires At Top](#requires-at-top)
+* [Requires at top](#requires-at-top)
+* [Always use imports]
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
+* [Good luck w/ VBA]
+* [Don't mix modern standards with old]
+
 
 ## Formatting
 
@@ -526,7 +536,7 @@ if (isSessionValid) {
 
 Crazy shit that you will probably never need. Stay away from it.
 
-### Requires At Top
+### Requires at top
 
 Always put requires at top of file to clearly illustrate a file's dependencies. Besides giving an overview for others at a quick glance of dependencies and possible memory impact, it allows one to determine if they need a package.json file should they choose to use the file elsewhere.
 
