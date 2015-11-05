@@ -721,12 +721,6 @@ if (a.empty()) {
 }
 ```
 
-* [Always use imports](#always-use-imports)
-* [Getters and setters](#getters-and-setters)
-* [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
-* [Good luck w/ VBA](#good-luck-with-vba)
-* [Don't mix modern standards with old](#dont-mix-modern-standards-with-old)
-* 
 ### Don't mix modern standards with old
 
 When editing legacy code try your best to adhere to the standards in the legacy code.  Don't force the new standard into the legacy documents.  Any standard is only as good as it is uniformly implemented.
