@@ -64,7 +64,6 @@ according to your preferences.
 * [Always use import aliases](#always-use-import-aliases)
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
-* [Good luck w/ VBA](#good-luck-with-vba)
 * [Don't mix modern standards with old](#dont-mix-modern-standards-with-old)
 
 
