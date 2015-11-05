@@ -54,7 +54,7 @@ according to your preferences.
 
 ### SQL
 * [Use lowerCamelCase for variables]
-* [Use UpperCamelCase for everything else]
+* [Use UpperCamelCase for everything else](#use-uppercamelcase-for-everything-else)
 * [Make use of case-insensitivity to improve code clarity]
 * [Use consistent indentation for code readability]
 
@@ -544,6 +544,35 @@ if (isSessionValid) {
   // ...
 }
 ```
+
+## SQL 
+
+### Use UpperCamelCase for everything else
+
+*Right:*
+
+```sql
+CREATE TABLE PhoneNumbers (
+  Id int IDENTITY(1,1),
+  AreaCode varchar(3) NOT NULL,
+  Number varchar(8) NOT NULL,
+  CreatedAt datetime NOT NULL,
+  -- ...
+)
+```
+
+*Wrong:*
+
+```sql
+CREATE TABLE phoneNumbers (
+  id int IDENTITY(1,1),
+  Area_Code varchar(3) NOT NULL,
+  NUMBER varchar(8) NOT NULL,
+  Createdat datetime NOT NULL,
+  -- ...
+)
+```
+
 
 ## Miscellaneous
 
