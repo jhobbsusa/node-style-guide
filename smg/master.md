@@ -18,7 +18,8 @@ according to your preferences.
 ## Table of contents
 
 ### Formatting
-* [2 Spaces for indentation](#2-spaces-for-indentation)
+* [2 Spaces for indentation for open source](#2-spaces-for-indentation-for-open-source)
+* [4 Spaces for indentation for Microsoft](#4-spaces-for-indentation-for-microsoft)
 * [Newlines](#newlines)
 * [No trailing whitespace](#no-trailing-whitespace)
 * [Use Semicolons](#use-semicolons)
@@ -70,10 +71,16 @@ according to your preferences.
 ## Formatting
 
 
-### 2 Spaces for indentation
+### 2 spaces for indentation for Open Source
 
 Use 2 spaces for indenting your code and swear an oath to never mix tabs and
 spaces - a special kind of hell is awaiting you otherwise.
+
+This applies to PHP, JavaScript, HTML, CSS, and Asterisk.
+
+### 4 spaces for indentation for Microsoft
+
+This applies to .Net, VBA, ASP, etc.
 
 ### Newlines
 
