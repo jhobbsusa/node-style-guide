@@ -61,11 +61,11 @@ according to your preferences.
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
 * [Requires at top](#requires-at-top)
-* [Always use imports]
+* [Always use import aliases](#always-use-import-aliases)
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
-* [Good luck w/ VBA]
-* [Don't mix modern standards with old]
+* [Good luck w/ VBA](#good-luck-with-vba)
+* [Don't mix modern standards with old](#dont-mix-modern-standards-with-old)
 
 
 ## Formatting
@@ -652,6 +652,38 @@ Crazy shit that you will probably never need. Stay away from it.
 
 Always put requires at top of file to clearly illustrate a file's dependencies. Besides giving an overview for others at a quick glance of dependencies and possible memory impact, it allows one to determine if they need a package.json file should they choose to use the file elsewhere.
 
+### Always use import aliases
+
+This makes it immediately clear where variables and methods are coming from
+
+*Right:* 
+
+```vb.net
+Imports db = DBCommanderController
+Imports dbOptions = DBCommanderController.DBCommanderOptions
+Imports dbSources = DBCommanderController.DBCommanderOptions.DataSources
+Imports generic = System.Collections.Generic
+
+' ...
+dataSet = db.Execute(sql, dbSources.NUMBERS, dbOptions._DataSet)
+
+Dim respOrgs As generic.List(Of String) = New generic.List(Of String)
+```
+
+*Wrong:*
+
+```vb.net
+Imports DBCommanderController
+Imports DBCommanderController.DBCommanderOptions
+Imports DBCommanderController.DBCommanderOptions.DataSources
+Imports System.Collections.Generic
+
+' ...
+dataSet = Execute(sql, NUMBERS, _DataSet)
+
+Dim respOrgs As List(Of String) = New List(Of String)
+```
+
 ### Getters and setters
 
 Do not use setters, they cause more problems for people who try to use your
@@ -688,3 +720,14 @@ if (a.empty()) {
   console.log('losing');
 }
 ```
+
+* [Always use imports](#always-use-imports)
+* [Getters and setters](#getters-and-setters)
+* [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
+* [Good luck w/ VBA](#good-luck-with-vba)
+* [Don't mix modern standards with old](#dont-mix-modern-standards-with-old)
+* 
+### Don't mix modern standards with old
+
+When editing legacy code try your best to adhere to the standards in the legacy code.  Don't force the new standard into the legacy documents.  Any standard is only as good as it is uniformly implemented.
+
