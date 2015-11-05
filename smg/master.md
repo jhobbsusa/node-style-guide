@@ -105,9 +105,12 @@ cheap syntactic pleasures.
 
 ### 80 characters per line
 
-Limit your lines to 80 characters. Yes, screens have gotten much bigger over the
+Limit your lines to 80 characters (Strongly recommended). Yes, screens have gotten much bigger over the
 last few years, but your brain has not. Use the additional room for split screen,
 your editor supports that, right?
+
+Due to existing class names that are very long this may not be a reasonable requirement.  
+In such cases your hard limit is 120 characters.
 
 ### Use single quotes
 
