@@ -38,6 +38,7 @@ according to your preferences.
 ### Conditionals
 * [Use the === operator](#use-the--operator)
 * [Use multi-line ternary operator](#use-multi-line-ternary-operator)
+* [Use Regex sparingly](#use-regex-sparingly)
 * [Use descriptive conditions](#use-descriptive-conditions)
 
 ### Functions
@@ -314,6 +315,10 @@ var foo = (a === b)
 ```js
 var foo = (a === b) ? 1 : 2;
 ```
+
+### Use Regex sparingly
+
+While Regex offers great performance, it is rarely easy to read.  Always lean towards code readability over performance, except when it is truly necessary.  Keeping this in mind, use Regex sparingly.
 
 ### Use descriptive conditions
 
