@@ -53,10 +53,10 @@ according to your preferences.
 * [Use slashes for comments](#use-slashes-for-comments)
 
 ### SQL
-* [Use lowerCamelCase for variables]
+* [Use lowerCamelCase for variables](#use-lowercamcelcase-for-variables)
 * [Use UpperCamelCase for everything else](#use-uppercamelcase-for-everything-else)
-* [Make use of case-insensitivity to improve code clarity]
-* [Use consistent indentation for code readability]
+* [Make use of case-insensitivity to improve code clarity](#make-use-of-case-insensitivity-to-improve-code-clarity)
+* [Use consistent indentation for code readability](#use-consistent-indentation-for-code-readability)
 
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
@@ -547,6 +547,26 @@ if (isSessionValid) {
 
 ## SQL 
 
+### Use lowerCamelCase for variables
+
+*Right:*
+
+```sql
+ALTER proc [dbo].[DoSomeMagic] @spellName varchar(25)
+AS
+BEGIN
+  Declare @batchId varchar(32)
+```
+
+*Wrong:*
+
+```sql
+ALTER proc [dbo].[DoSomeMagic] @SpellName varchar(25)
+AS
+BEGIN
+  Declare @batch_id varchar(32)
+```
+
 ### Use UpperCamelCase for everything else
 
 *Right:*
@@ -573,6 +593,54 @@ CREATE TABLE phoneNumbers (
 )
 ```
 
+### Make use of case-insensitivity to improve code clarity
+
+There are many tables, views, etc that do not adhere to these coding standards.  When writing SQL make use of SQL Server's case-insensitivity to improve code clarity and to adhere to our current naming conventions.
+
+Optionally use a single line for very simple statements involving no joins and a single where.
+
+*Right:*
+
+```js
+// Given TABLE PBX..applications ( applicationid );
+var sql = 'SELECT * FROM PBX..Applications WHERE ApplicationId = ?';
+```
+
+*Wrong:*
+
+```js
+// Given TABLE PBX..applications ( applicationid );
+var sql = 'SELECT * FROM PBX..applications WHERE applicationid = ?';
+```
+
+### Use consistent indentation for code readability
+
+*Right:*
+
+```js
+var sql = " \
+  SELECT * \
+  FROM   PBX..Applications app \
+  JOIN   PBX..SplitTestApplications sta ON app.ApplicationId = sta.ApplicationId \
+  WHERE  sta.SplitTestId = " + splitTest.id + " \
+    AND  app.isActive = 1";
+```
+
+*Wrong:*
+
+```js
+var sql = 'SELECT * \
+  FROM   PBX..Applications app \
+  JOIN   PBX..SplitTestApplications sta ON app.ApplicationId = sta.ApplicationId \
+  WHERE  sta.SplitTestId = " + splitTest.id + " \
+  AND    app.isActive = 1";
+
+var sql = ' \
+  SELECT * FROM PBX..Applications app \
+  JOIN PBX..SplitTestApplications sta \
+  ON app.ApplicationId = sta.ApplicationId \
+  WHERE sta.SplitTestId = " + splitTest.id;
+```
 
 ## Miscellaneous
 
