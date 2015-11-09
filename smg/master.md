@@ -683,13 +683,13 @@ var sql = " \
 *Wrong:*
 
 ```js
-var sql = 'SELECT * \
+var sql = "SELECT * \
   FROM   PBX..Applications app \
   JOIN   PBX..SplitTestApplications sta ON app.ApplicationId = sta.ApplicationId \
   WHERE  sta.SplitTestId = " + splitTest.id + " \
   AND    app.isActive = 1";
 
-var sql = ' \
+var sql = "\
   SELECT * FROM PBX..Applications app \
   JOIN PBX..SplitTestApplications sta \
   ON app.ApplicationId = sta.ApplicationId \
