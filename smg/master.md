@@ -55,6 +55,7 @@ according to your preferences.
 
 ### SQL
 * [Use lowerCamelCase for variables](#use-lowercamcelcase-for-variables)
+* [Use ALL UPPERCASE for all built-in keywords](#use-all-uppercase-for-all-built-in-keywords)
 * [Use UpperCamelCase for everything else](#use-uppercamelcase-for-everything-else)
 * [Make use of case-insensitivity to improve code clarity](#make-use-of-case-insensitivity-to-improve-code-clarity)
 * [Use consistent indentation for code readability](#use-consistent-indentation-for-code-readability)
@@ -590,6 +591,35 @@ AS
 BEGIN
   Declare @batch_id varchar(32)
 ```
+
+### Use ALL UPPERCASE for all built-in keywords
+
+All SQL Keywords should be in all UPPERCASE, like constants.
+
+*Right:*
+
+```sql
+CREATE TABLE phoneNumbers (
+  id INT IDENTITY(1,1),
+  Area_Code VARCHAR(3) NOT NULL,
+  NUMBER VARCHAR(8) NOT NULL,
+  Createdat DATETIME NOT NULL,
+  -- ...
+)
+```
+
+*Wrong:*
+
+```sql
+create Table phoneNumbers (
+  id int IDENTITY(1,1),
+  Area_Code varchar(3) NOT NULL,
+  NUMBER VARCHAR(8) not null,
+  Createdat DateTime NOT NULL,
+  -- ...
+)
+```
+
 
 ### Use UpperCamelCase for everything else
 
