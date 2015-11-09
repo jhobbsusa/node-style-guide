@@ -29,7 +29,7 @@ according to your preferences.
 * [Declare one variable per var statement](#declare-one-variable-per-var-statement)
 
 ### Naming Conventions
-* [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
+* [Use lowerCamelCase for variables, properties and function  names](#use-lowercamelcase-for-variables-properties-and-function-names)
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
 
@@ -546,7 +546,7 @@ if (isSessionValid) {
 
 ## SQL 
 
-### Use lowerCamelCase for variables
+### Use lowerCamelCase for variables, properties and function names
 
 *Right:*
 
