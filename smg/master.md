@@ -39,6 +39,7 @@ according to your preferences.
 ### Conditionals
 * [Use the === operator](#use-the--operator)
 * [Use multi-line ternary operator](#use-multi-line-ternary-operator)
+* [Never nest multi-line ternary operators](#never-nest-multi-line-ternary-operators)
 * [Use Regex sparingly](#use-regex-sparingly)
 * [Use descriptive conditions](#use-descriptive-conditions)
 
@@ -309,9 +310,15 @@ if (a == '') {
 
 ### Use multi-line ternary operator
 
-The ternary operator should not be used on a single line. Split it up into multiple lines instead.
+The ternary operator should be used on a single line.
 
 *Right:*
+
+```js
+var foo = (a === b) ? 1 : 2;
+```
+
+*Wrong:*
 
 ```js
 var foo = (a === b)
@@ -319,11 +326,29 @@ var foo = (a === b)
   : 2;
 ```
 
+### Never nest multi-line ternary operators
+
+We need to be able to read this stuff.  Keep it simple.
+
+*Right:*
+
+```js
+var foo = 0;
+if (a === b) {
+ if (c === SOME_CONST) {
+   foo = 1;
+ }
+} else {
+  foo = 2;
+}
+```
+
 *Wrong:*
 
 ```js
-var foo = (a === b) ? 1 : 2;
+var foo = (a === b) ? (c === SOME_CONST) ? 1 : 0 : 2;
 ```
+
 
 ### Use Regex sparingly
 
