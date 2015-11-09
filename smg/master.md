@@ -577,19 +577,19 @@ if (isSessionValid) {
 *Right:*
 
 ```sql
-ALTER proc [dbo].[DoSomeMagic] @spellName varchar(25)
+ALTER PROC [dbo].[DoSomeMagic] @spellName VARCHAR(25)
 AS
 BEGIN
-  Declare @batchId varchar(32)
+  DECLARE @batchId VARCHAR(32)
 ```
 
 *Wrong:*
 
 ```sql
-ALTER proc [dbo].[DoSomeMagic] @SpellName varchar(25)
+ALTER PROC [dbo].[DoSomeMagic] @SpellName VARCHAR(25)
 AS
 BEGIN
-  Declare @batch_id varchar(32)
+  DECLARE @batch_id VARCHAR(32)
 ```
 
 ### Use ALL UPPERCASE for all built-in keywords
@@ -627,10 +627,10 @@ create Table PhoneNumber (
 
 ```sql
 CREATE TABLE PhoneNumbers (
-  Id int IDENTITY(1,1),
-  AreaCode varchar(3) NOT NULL,
-  Number varchar(8) NOT NULL,
-  CreatedAt datetime NOT NULL,
+  Id INT IDENTITY(1,1),
+  AreaCode VARCHAR(3) NOT NULL,
+  Number VARCHAR(8) NOT NULL,
+  CreatedAt DATETIME NOT NULL,
   -- ...
 )
 ```
@@ -639,10 +639,10 @@ CREATE TABLE PhoneNumbers (
 
 ```sql
 CREATE TABLE phoneNumbers (
-  id int IDENTITY(1,1),
-  Area_Code varchar(3) NOT NULL,
-  NUMBER varchar(8) NOT NULL,
-  Createdat datetime NOT NULL,
+  id INT IDENTITY(1,1),
+  Area_Code VARCHAR(3) NOT NULL,
+  NUMBER VARCHAR(8) NOT NULL,
+  Createdat DATETIME NOT NULL,
   -- ...
 )
 ```
