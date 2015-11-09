@@ -599,11 +599,11 @@ All SQL Keywords should be in all UPPERCASE, like constants.
 *Right:*
 
 ```sql
-CREATE TABLE phoneNumbers (
-  id INT IDENTITY(1,1),
-  Area_Code VARCHAR(3) NOT NULL,
-  NUMBER VARCHAR(8) NOT NULL,
-  Createdat DATETIME NOT NULL,
+CREATE TABLE PhoneNumber (
+  Id INT IDENTITY(1,1),
+  AreaCode VARCHAR(3) NOT NULL,
+  Number VARCHAR(8) NOT NULL,
+  CreatedAt DATETIME NOT NULL,
   -- ...
 )
 ```
@@ -611,11 +611,11 @@ CREATE TABLE phoneNumbers (
 *Wrong:*
 
 ```sql
-create Table phoneNumbers (
-  id int IDENTITY(1,1),
-  Area_Code varchar(3) NOT NULL,
-  NUMBER VARCHAR(8) not null,
-  Createdat DateTime NOT NULL,
+create Table PhoneNumber (
+  Id int IDENTITY(1,1),
+  AreaCode varchar(3) NOT NULL,
+  Number VARCHAR(8) not null,
+  CreatedAt DateTime NOT NULL,
   -- ...
 )
 ```
