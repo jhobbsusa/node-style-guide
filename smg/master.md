@@ -67,7 +67,7 @@ according to your preferences.
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
 * [Don't mix modern standards with old](#dont-mix-modern-standards-with-old)
-
+* [Use camel case for acronyms](#use-camel-case-for-acronyms)
 
 ## Formatting
 
@@ -779,3 +779,21 @@ if (a.empty()) {
 
 When editing legacy code try your best to adhere to the standards in the legacy code.  Don't force the new standard into the legacy documents.  Any standard is only as good as it is uniformly implemented.
 
+### Use camel case for acronyms
+
+Stick with the lowerCamelCase or UpperCamelCase depending on where you're coding however make acronyms camel case. Treat each acronym as its own word: `Php`, `Acl`, etc.
+
+*Right:*
+```js
+var sql = 'SELECT Dnis FROM Pbx..DnisPpc';
+var realDnis = rows[0].dnis;
+var dnis = rows[0].dnis;
+```
+
+*Wrong:*
+```js
+var sql = 'SELECT dnis FROM PBX..DNISPPC';
+var realdnis = rows[0].dnis;
+var realDNIS = rows[0].dnis;
+var DNIS = rows[0].dnis;
+```
