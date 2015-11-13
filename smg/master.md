@@ -60,6 +60,7 @@ according to your preferences.
 * [Use UpperCamelCase for everything else](#use-uppercamelcase-for-everything-else)
 * [Make use of case-insensitivity to improve code clarity](#make-use-of-case-insensitivity-to-improve-code-clarity)
 * [Use consistent indentation for code readability](#use-consistent-indentation-for-code-readability)
+* [Make JOINs pretty](#make-joins-pretty)
 
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
@@ -729,6 +730,35 @@ var sql = "\
   WHERE sta.SplitTestId = " + splitTest.id;
 ```
 
+### Make JOINs pretty
+
+Try to keep the JOIN on the same line however you can indent it on the next line if it will be breaking the "max characters per line" rule.
+
+*Right:*
+
+```js
+  var sql = '\
+    SELECT * \
+    FROM   Pbx..SplitTestServerGroups sg \
+    JOIN   Pbx..SplitTestServerGroupServers sgs \
+      ON   sgs.SplitTestServerGroupId = sg.Id \
+    JOIN   Pbx..SplitTests st ON st.Id = sg.SplitTestId \
+    WHERE  SplitTestId = ' + splitTestId + ' \
+      AND  sgs.PbxServerId = ' + pbxServerId;
+```
+
+*Wrong:*
+
+```js
+  var sql = '\
+    SELECT * \
+    FROM   Pbx..SplitTestServerGroups sg \
+    JOIN   Pbx..SplitTestServerGroupServers sgs ON sgs.SplitTestServerGroupId = sg.Id \
+    JOIN   Pbx..SplitTests st \
+      ON   st.Id = sg.SplitTestId \
+    WHERE  SplitTestId = ' + splitTestId + ' \
+      AND  sgs.PbxServerId = ' + pbxServerId;
+```
 ## Miscellaneous
 
 ### Object.freeze, Object.preventExtensions, Object.seal, with, eval
