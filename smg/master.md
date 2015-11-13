@@ -32,6 +32,7 @@ according to your preferences.
 * [Use lowerCamelCase for variables, properties and function  names](#use-lowercamelcase-for-variables-properties-and-function-names)
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+* [Use a leading underscore for private and protected names](#use-a-leading-underscore-for-private-and-protected-names)
 
 ### Variables
 * [Object / Array creation](#object--array-creation)
@@ -252,6 +253,38 @@ File.fullPermissions = 0777;
 ```
 
 [const]: https://developer.mozilla.org/en/JavaScript/Reference/Statements/const
+
+### Use a leading underscore for private and protected names
+
+*Right:*
+
+```vb.net
+  Private _cache As generic.List(Of String)
+  Public cache As generic.List(Of String)
+  
+  Private Function _call() As Boolean
+    ' ... 
+  End Function 
+  
+  Public Sub startCall()
+    ' ... 
+  End Sub
+```
+
+*Wrong:*
+
+```vb.net
+  Private privateCache As generic.List(Of String)
+  Public cache As generic.List(Of String)
+  
+  Private Function call() As Boolean
+    ' ... 
+  End Function 
+  
+  Public Sub startCall()
+    ' ... 
+  End Sub
+```
 
 ## Variables
 
