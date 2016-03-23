@@ -776,15 +776,15 @@ This makes it immediately clear where variables and methods are coming from
 *Right:* 
 
 ```vb.net
-Imports db = DBCommanderController
-Imports dbOptions = DBCommanderController.DBCommanderOptions
-Imports dbSources = DBCommanderController.DBCommanderOptions.DataSources
-Imports generic = System.Collections.Generic
+Imports _Db = DBCommanderController
+Imports _DbOptions = DBCommanderController.DBCommanderOptions
+Imports _DbSources = DBCommanderController.DBCommanderOptions.DataSources
+Imports _Generic = System.Collections.Generic
 
 ' ...
-dataSet = db.Execute(sql, dbSources.NUMBERS, dbOptions._DataSet)
+dataSet = _Db.Execute(sql, _DbSources.NUMBERS, _DbOptions._DataSet)
 
-Dim respOrgs As generic.List(Of String) = New generic.List(Of String)
+Dim respOrgs As _Generic.List(Of String) = New _Generic.List(Of String)
 ```
 
 *Wrong:*
