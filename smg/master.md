@@ -61,6 +61,7 @@ according to your preferences.
 * [Make use of case-insensitivity to improve code clarity](#make-use-of-case-insensitivity-to-improve-code-clarity)
 * [Use consistent indentation for code readability](#use-consistent-indentation-for-code-readability)
 * [Make JOINs pretty](#make-joins-pretty)
+* [Line up sub-selects](#line-up-sub-selects)
 
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
@@ -759,6 +760,51 @@ Try to keep the JOIN on the same line however you can indent it on the next line
     WHERE  SplitTestId = ' + splitTestId + ' \
       AND  sgs.PbxServerId = ' + pbxServerId;
 ```
+
+### Line up sub-selects
+
+*Right:*
+
+```vb
+_Db.Execute( _
+    " SELECT    sqh.WaitingOnStep, " + _
+    "           sqh.Id, " + _
+    "           sqh.PhoneNumber, " + _
+    "           sqh.CreatedAt AS StartedThisStepAt " + _
+    " FROM  ( " + _
+    "       SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
+    "       FROM    SparingQueueHistory " + _
+    "       WHERE   Id IN ( " + _
+    "                     SELECT  MAX(Id) " + _
+    "                     FROM     SparingQueueHistory " + _
+    "                     GROUP BY PhoneNumber " + _
+    "                     ) " + _
+    "       ) sqh " + _
+    " JOIN  SparingQueue sq ON sqh.PhoneNumber = sq.PhoneNumber " + _
+    " WHERE sq.WaitingOnStep != '' ", ... 
+```
+
+*Wrong:*
+
+```vb
+_Db.Execute( _
+    " SELECT    sqh.WaitingOnStep, " + _
+    "           sqh.Id, " + _
+    "           sqh.PhoneNumber, " + _
+    "           sqh.CreatedAt AS StartedThisStepAt " + _
+    " FROM  ( " + _
+    "           SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
+    "           FROM    SparingQueueHistory " + _
+    "           WHERE   Id IN ( " + _
+    "               SELECT  MAX(Id) " + _
+    "               FROM     SparingQueueHistory " + _
+    "               GROUP BY PhoneNumber " + _
+    "           ) " + _
+    "       ) sqh " + _
+    " JOIN  SparingQueue sq ON sqh.PhoneNumber = sq.PhoneNumber " + _
+    " WHERE sq.WaitingOnStep != '' ", ... 
+```
+
 ## Miscellaneous
 
 ### Object.freeze, Object.preventExtensions, Object.seal, with, eval
