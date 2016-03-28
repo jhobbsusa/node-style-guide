@@ -33,6 +33,7 @@ according to your preferences.
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
 * [Use a leading underscore for private and protected names](#use-a-leading-underscore-for-private-and-protected-names)
+* [Expose private or protected items for testing while retaining the underscore](#expose-private-or-protected-items-for-testing-while-retaining-the-underscore)
 
 ### Variables
 * [Object / Array creation](#object--array-creation)
@@ -285,6 +286,40 @@ File.fullPermissions = 0777;
   
   Public Sub startCall()
     ' ... 
+  End Sub
+```
+
+### Expose private or protected items for testing while retaining the underscore
+
+For testing, you may need to expose a private or protected item.  In this case, keep the underscore so that we know it is not part of the exposed API.
+
+*Right:*
+
+```vb.net
+  Public _cache As generic.List(Of String) ' Used only internally and in tests
+  Public cache As generic.List(Of String)  ' Can be accessed by anything
+  
+  Public Function _call() As Boolean
+    ' ... This should not be called by anything by this object and tests
+  End Function 
+  
+  Public Sub startCall()
+    ' ... Can be called by anything
+  End Sub
+```
+
+*Wrong:*
+
+```vb.net
+  Public internalCache As generic.List(Of String) 
+  Public cache As generic.List(Of String) 
+  
+  Public Function internalCall() As Boolean
+    ' ...
+  End Function 
+  
+  Public Sub startCall()
+    ' ...
   End Sub
 ```
 
