@@ -775,7 +775,7 @@ _Db.Execute( _
     "       SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
     "       FROM    SparingQueueHistory " + _
     "       WHERE   Id IN ( " + _
-    "                     SELECT  MAX(Id) " + _
+    "                     SELECT   MAX(Id) " + _
     "                     FROM     SparingQueueHistory " + _
     "                     GROUP BY PhoneNumber " + _
     "                     ) " + _
@@ -796,7 +796,7 @@ _Db.Execute( _
     "           SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
     "           FROM    SparingQueueHistory " + _
     "           WHERE   Id IN ( " + _
-    "               SELECT  MAX(Id) " + _
+    "               SELECT   MAX(Id) " + _
     "               FROM     SparingQueueHistory " + _
     "               GROUP BY PhoneNumber " + _
     "           ) " + _
