@@ -300,7 +300,7 @@ For testing, you may need to expose a private or protected item.  In this case, 
   Public cache As generic.List(Of String)  ' Can be accessed by anything
   
   Public Function _call() As Boolean
-    ' ... This should not be called by anything by this object and tests
+    ' ... This should not be called by anything but this object and tests
   End Function 
   
   Public Sub startCall()
