@@ -771,17 +771,17 @@ _Db.Execute( _
     "           sqh.Id, " + _
     "           sqh.PhoneNumber, " + _
     "           sqh.CreatedAt AS StartedThisStepAt " + _
-    " FROM  ( " + _
-    "       SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
-    "       FROM    SparingQueueHistory " + _
-    "       WHERE   Id IN ( " + _
-    "                     SELECT   MAX(Id) " + _
-    "                     FROM     SparingQueueHistory " + _
-    "                     GROUP BY PhoneNumber " + _
-    "                     ) " + _
-    "       ) sqh " + _
-    " JOIN  SparingQueue sq ON sqh.PhoneNumber = sq.PhoneNumber " + _
-    " WHERE sq.WaitingOnStep != '' ", ... 
+    " FROM      ( " + _
+    "           SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
+    "           FROM    SparingQueueHistory " + _
+    "           WHERE   Id IN ( " + _
+    "                         SELECT   MAX(Id) " + _
+    "                         FROM     SparingQueueHistory " + _
+    "                         GROUP BY PhoneNumber " + _
+    "                         ) " + _
+    "           ) sqh " + _
+    " JOIN      SparingQueue sq ON sqh.PhoneNumber = sq.PhoneNumber " + _
+    " WHERE     sq.WaitingOnStep != '' ", ... 
 ```
 
 *Wrong:*
@@ -792,17 +792,17 @@ _Db.Execute( _
     "           sqh.Id, " + _
     "           sqh.PhoneNumber, " + _
     "           sqh.CreatedAt AS StartedThisStepAt " + _
-    " FROM  ( " + _
-    "           SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
-    "           FROM    SparingQueueHistory " + _
-    "           WHERE   Id IN ( " + _
-    "               SELECT   MAX(Id) " + _
-    "               FROM     SparingQueueHistory " + _
-    "               GROUP BY PhoneNumber " + _
-    "           ) " + _
-    "       ) sqh " + _
-    " JOIN  SparingQueue sq ON sqh.PhoneNumber = sq.PhoneNumber " + _
-    " WHERE sq.WaitingOnStep != '' ", ... 
+    " FROM      ( " + _
+    "              SELECT  Id, WaitingOnStep, PhoneNumber, CreatedAt " + _
+    "               FROM    SparingQueueHistory " + _
+    "               WHERE   Id IN ( " + _
+    "                   SELECT   MAX(Id) " + _
+    "                   FROM     SparingQueueHistory " + _
+    "                   GROUP BY PhoneNumber " + _
+    "               ) " + _
+    "           ) sqh " + _
+    " JOIN      SparingQueue sq ON sqh.PhoneNumber = sq.PhoneNumber " + _
+    " WHERE     sq.WaitingOnStep != '' ", ... 
 ```
 
 ## Miscellaneous
